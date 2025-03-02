@@ -14,8 +14,8 @@ def selection_sort(arr: list) -> list:
     sorted_array = []
     copy_arr = arr.copy()
     for i in range(len(copy_arr)):
-        smallest = find_smallest(arr=copy_arr)
-        sorted_array.append(copy_arr.pop(smallest))
+        smallest_index = find_smallest(arr=copy_arr)
+        sorted_array.append(copy_arr.pop(smallest_index))
 
     return sorted_array
 
