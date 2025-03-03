@@ -73,36 +73,25 @@ print(standard_binary_search(
     12939    
 ))
 
-def recursion_binary_search(arr, target, low=None, high=None):
-    if low and high:
-        arr_new = arr[low:high+1]
-    else:
-        arr_new = arr
-    
-    if len(arr_new) == 0:
+def recursion_binary_search(arr, target, left, right):
+    mid = (left+right) // 2
+
+    if left > right:
         return None
-    if len(arr_new) == 1 and arr_new[0] == target:
-        return arr_new[0]
-    if len(arr_new) == 1 and arr_new[0] != target:
-        return None
-    
-    if not low and not high:
-        low = 0
-        high = len(arr) - 1
-    mid = (low + high) // 2
-    
+
     if arr[mid] == target:
         return mid
     elif arr[mid] < target:
-        return recursion_binary_search(arr, target, mid+1, high)
+        return recursion_binary_search(arr, target, mid+1, right)
     else:
-        return recursion_binary_search(arr, target, low, mid-1)
-    
+        return recursion_binary_search(arr, target, left, mid-1)
+
+
 import sys
 sys.setrecursionlimit(6**10)
 
 print("Бинарный поиск. Рекурсия.")
 arr = [-5838, -1, 0, 1, 1, 1, 2, 3, 8585, 12939, 14983295]
-print(recursion_binary_search(arr, 3))
-print(recursion_binary_search(arr, 4))
-print(recursion_binary_search(arr, 12939))
+print(recursion_binary_search(arr, 3, 0, len(arr) - 1))
+print(recursion_binary_search(arr, 4, 0, len(arr) - 1))
+print(recursion_binary_search(arr, 12939, 0, len(arr) - 1))
