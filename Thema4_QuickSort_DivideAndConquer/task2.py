@@ -86,10 +86,6 @@ def recursion_binary_search(arr, target, left, right):
     else:
         return recursion_binary_search(arr, target, left, mid-1)
 
-
-import sys
-sys.setrecursionlimit(6**10)
-
 print("Бинарный поиск. Рекурсия.")
 arr = [-5838, -1, 0, 1, 1, 1, 2, 3, 8585, 12939, 14983295]
 print(recursion_binary_search(arr, 3, 0, len(arr) - 1))
