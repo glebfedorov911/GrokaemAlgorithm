@@ -25,5 +25,12 @@ def recursion_multiply_table(arr, i=0, j=0):
 
 n = [2, 3, 7, 8, 10]
 multiply_table(n)
-print("-="*10)
+print("-="*40)
 recursion_multiply_table(n)
+print("-="*40)
+
+n = range(11)
+multiply_table(n)
+print("-="*40)
+recursion_multiply_table(n)
+print("-="*40)
