@@ -74,10 +74,10 @@ print(standard_binary_search(
 ))
 
 def recursion_binary_search(arr, target, left, right):
-    mid = (left+right) // 2
-
     if left > right:
         return None
+
+    mid = (left+right) // 2
 
     if arr[mid] == target:
         return mid
