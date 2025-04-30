@@ -22,23 +22,26 @@ def is_seller_mango(name):
     return name[-1] == 'm'
 
 def has_mango_seller(name):
-    search_queue = deque()
-    search_queue += check_name_in_graph(name)
+    print("-="*10)
+    searched_queue = deque()
+    searched_queue += check_name_in_graph(name)
     searched = set()
 
-    while search_queue:
-        person = search_queue.popleft()
-        if person in searched:
-            print(f"{person} уже проверена")
+    while searched_queue:
+        current_name = searched_queue.popleft()
+        if current_name in searched:
+            print(f"Уже был просмотрен пользователь с именем {current_name}")
             continue
 
-        if is_seller_mango(person):
-            print(f"Продавец манго - это {person}")
+        if is_seller_mango(current_name):
+            print(f"{current_name.capitalize()} продавец манго")
             return True
         else:
-            search_queue += check_name_in_graph(person)
-            searched.add(person)
-    print("Продавец не найден")
+            print(f"{current_name.capitalize()} не является продавецом манго")
+            searched_queue += check_name_in_graph(current_name)
+            searched.add(current_name)
+        
+    print("Продавец манго не был найден")
     return False
 
 print(has_mango_seller('gleb'))
